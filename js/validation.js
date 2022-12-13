@@ -8,6 +8,7 @@ btnSubmit.addEventListener("click", (e) => {
 	if (!isChecked("gender")) e.preventDefault();
 	if (!isChecked("hobby")) e.preventDefault();
 	if (!isSelect("edu")) e.preventDefault();
+	if (!isPwd("pwd1", "pwd2", 5)) e.preventDefault();
 });
 
 function isTxt(name, len) {
@@ -87,6 +88,40 @@ function isSelect(name) {
 		const errMsg = document.createElement("p");
 		errMsg.append("항목을 선택해주세요.");
 		sel.closest("td").append(errMsg);
+		return false;
+	}
+}
+
+function isPwd(name1, name2, len) {
+	const pwd1 = form.querySelector(`[name=${name1}]`);
+	const pwd2 = form.querySelector(`[name=${name2}]`);
+	const pwd1_val = pwd1.value;
+	const pwd2_val = pwd2.value;
+
+	const num = /[0-9]/;
+	const eng = /[a-zA-Z]/;
+	const spc = /[!@#$%^&*()_+\[\]]/;
+
+	if (
+		pwd1_val === pwd2_val &&
+		pwd1_val.length > len &&
+		num.test(pwd1_val) &&
+		eng.test(pwd1_val) &&
+		spc.test(pwd1_val)
+	) {
+		const errMsgs = pwd1.closest("td").querySelectorAll("p");
+		if (errMsgs.length > 0) pwd1.closest("td").querySelector("p").remove();
+
+		return true;
+	} else {
+		const errMsgs = pwd1.closest("td").querySelectorAll("p");
+		if (errMsgs.length > 0) pwd1.closest("td").querySelector("p").remove();
+
+		const errMsg = document.createElement("p");
+		errMsg.append(
+			`비밀번호는 ${len} 글자 이상, 영문, 숫자, 특수문자를 모두 포함해서 동일하게 입력하세요.`
+		);
+		pwd1.closest("td").append(errMsg);
 		return false;
 	}
 }
