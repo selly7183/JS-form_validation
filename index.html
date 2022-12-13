@@ -7,6 +7,13 @@
 		<title>Form validation</title>
 		<link rel="stylesheet" href="css/style.css" />
 		<script defer src="js/validation.js"></script>
+		<script type="module">
+			import Validation from "./js/validation.js";
+
+			window.addEventListener("load", () => {
+				new Validation();
+			});
+		</script>
 	</head>
 	<body>
 		<section class="join">
