@@ -1,5 +1,6 @@
 @charset 'utf-8';
 @import "reset";
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap");
 
 .join {
 	width: 100%;
@@ -10,7 +11,7 @@
 		margin: 0 auto;
 
 		h1 {
-			font: normal 60px/1;
+			font: normal 60px/1 "Rubik Gemstones", cursive;
 			color: #555;
 			margin-bottom: 50px;
 		}
@@ -72,7 +73,7 @@
 			p {
 				font: 11px/1 "맑은 고딕";
 				color: hotpink;
-				margin-bottom: 5px;
+				margin: 5px 0;
 			}
 		}
 	}

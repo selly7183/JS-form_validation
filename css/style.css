@@ -1,8 +1,13 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 ul,
@@ -43,7 +48,7 @@ label {
   margin: 0 auto;
 }
 .join .inner h1 {
-  font: normal 60px/1;
+  font: normal 60px/1 "Rubik Gemstones", cursive;
   color: #555;
   margin-bottom: 50px;
 }
@@ -103,7 +108,7 @@ label {
 .join .inner table p {
   font: 11px/1 "맑은 고딕";
   color: hotpink;
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
 /*# sourceMappingURL=style.css.map */
