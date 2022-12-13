@@ -1,8 +1,25 @@
 class Validation {
-	constructor() {
-		this.form = document.querySelector("#member");
+	constructor(selector, arr) {
+		this.form = document.querySelector(selector);
 		this.btnSubmit = this.form.querySelector("input[type=submit]");
 
+		arr.forEach((opt) => {
+			this.btnSubmit.addEventListener("click", (e) => {
+				if (opt.type === "text")
+					if (!this.isTxt(opt.name, opt.len)) e.preventDefault();
+				if (opt.type === "email")
+					if (!this.isEmail(opt.name, opt.len)) e.preventDefault();
+				if (opt.type === "check")
+					if (!this.isChecked(opt.name)) e.preventDefault();
+				if (opt.type === "select")
+					if (!this.isSelect(opt.name)) e.preventDefault();
+				if (opt.type === "password")
+					if (!this.isPwd(opt.name[0], opt.name[1], opt.len))
+						e.preventDefault();
+			});
+		});
+
+		/*
 		this.btnSubmit.addEventListener("click", (e) => {
 			if (!this.isTxt("userid", 5)) e.preventDefault();
 			if (!this.isTxt("comments", 10)) e.preventDefault();
@@ -12,6 +29,7 @@ class Validation {
 			if (!this.isSelect("edu")) e.preventDefault();
 			if (!this.isPwd("pwd1", "pwd2", 5)) e.preventDefault();
 		});
+        */
 	}
 	isTxt(name, len) {
 		const input = this.form.querySelector(`[name=${name}]`);
